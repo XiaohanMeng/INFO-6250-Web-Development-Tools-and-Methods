@@ -1,0 +1,64 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+
+    font-family: sans-serif;
+
+    background-color: bisque;
+}
+
+
+header{
+    background-color:lightcoral;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 1.5rem;
+}
+
+h1{
+    justify-content: center;
+    text-align: center;
+
+    margin: 0;
+
+    width: 100%;
+
+    font-size: 2rem;
+    
+    color: rgb(12, 10, 10);
+}
+
+
+main{
+    padding: 1rem 2rem 2rem 2rem;
+
+    color: rgb(12, 10, 10);
+}
+
+p{
+    text-align: justify;
+}
+
+
+footer{
+    position: fixed;
+
+    bottom: 0;
+    width: 100%;
+
+    background-color:lightblue;
+
+    padding: 1.5rem;
+
+    text-align: center;
+
+    
+}

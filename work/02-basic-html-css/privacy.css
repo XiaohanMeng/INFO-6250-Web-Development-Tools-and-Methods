@@ -1,0 +1,8 @@
+.privacy-text::first-letter {
+    font-size: 150%;
+    line-height: 1.6;
+    
+    font-weight: bold;
+    
+    color: brown;
+  }

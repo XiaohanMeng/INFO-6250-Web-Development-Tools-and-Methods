@@ -1,0 +1,26 @@
+
+.description{
+    padding: 1rem;
+    padding-bottom: 0;
+
+    text-align: center;
+}
+
+.cats-list{
+    padding: 1rem;
+
+    border-style: dotted solid double dashed; 
+    border-radius: 1rem;
+    border-color: lightcoral;
+
+    list-style-type: "\1F431"
+}
+
+
+.cats-element{
+    padding: 0.5rem;
+
+    border-style: solid;
+    border-color: lightblue;
+    border-radius: 1.5rem;
+}
