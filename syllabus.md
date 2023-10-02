@@ -71,7 +71,7 @@ At the end of Section 1 you should be able to write a simple multiple page web a
 
 #### Server Side Project (project1) Due
 
-Sun Oct 29, 11:59pm PT
+Sun Oct 22, 11:59pm PT
 
 ### Section 2: Web Frontend 
 
