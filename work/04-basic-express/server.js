@@ -14,8 +14,12 @@ app.get('/', (req, res) => {
 
 // Below includes an example of pulling fields from a POST request body
 app.post('/chat', express.urlencoded({ extended: false }), (req, res) => {
-  const { text } = req.body; // You'll need to add something!
+  // get user name and text
+  const { username, text } = req.body; // You'll need to add something!
   // Fill in here!
+
+  // add to chat to store the user and text
+  chat.addMessage({ sender: username, text: text });
   res.redirect('/');
 });
 
