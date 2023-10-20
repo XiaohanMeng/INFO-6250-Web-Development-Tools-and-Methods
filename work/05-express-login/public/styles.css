@@ -1,0 +1,64 @@
+*, *::before, *::after { 
+    box-sizing: border-box;
+}
+
+html, body { 
+    height: 100%;
+    margin: 0;
+    padding: 0 1rem;
+
+    font-family: sans-serif;
+    
+    background-color: #FFE5E5;
+
+    word-break: break-all;
+    
+}
+
+header{
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    word-break: normal;
+}
+
+header h1{
+    text-align: center;
+    align-items: center;
+
+    margin: 0;
+
+    width: 100%;
+
+    color: black;
+}
+
+button{
+    border: none;
+    padding: 1rem;
+
+    background-color: #FFBFBF;
+    border-radius: 2rem;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+}
+
+
+/* desktop */
+@media screen and (min-width:44rem) {
+    .game-updated-word { 
+        background-color: #e7adad;
+        
+        /* alreay test by the longest word in English: pneumonoultramicroscopicsilicovolcanoconiosis */
+        word-break: normal;
+        
+    }
+}
+
+
+
