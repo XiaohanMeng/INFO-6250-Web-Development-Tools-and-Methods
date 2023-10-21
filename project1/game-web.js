@@ -24,9 +24,11 @@ const gamePage = {
                     <div class="game">
                         <div class="game-info">
                             <h2 class="game-title">${username}, Welcome to word game!</h2>
-                            <p class="game-instruction">How to play this game: a SECRET word will be selected in the list of POSSIBLE WORDS and you are going to guess what the word is. <br>
-                            Each guess will show you how many letters of the word are the same as the secret word. Please do not guess a word that is not in the possible words, and do not repeat guessing the same word. <br>
-                            Now it's time to guess your word!</p>
+                            <div class="game-instruction">
+                                <p>How to play this game: a SECRET word will be selected in the list of POSSIBLE WORDS and you are going to guess what the word is. </p>
+                                <p>Each guess will show you how many letters of the word are the same as the secret word. Please do not guess a word that is not in the possible words, and do not repeat guessing the same word. </p>
+                                <p>Now it's time to guess your word! </p>
+                            </div>
                         </div>
 
                         <div class="words-field">
@@ -101,15 +103,20 @@ const gamePage = {
         if(!userInfo.gameData[username].isValid){
             return `<p class="error-text">This is not a valid word. Please enter a word from possible words that you haven't guessed yet. </p>`;
         }
-        return` <br/>`;
+        return `<p> </p>`;
     },
 
     // if win, show the message
     winningMessage: function(userInfo, username) {
         if(userInfo.gameData[username].winning){
-            return `<p class="winning-text">Congratulations! <br> You Guess the word! <br> The target word is: ${userInfo.gameData[username].secretWord}. <br> You can start a NEW game! </p>`;
+            return `<div class="winning-text">
+                <p>Congratulations! </p>
+                <p>You Guess the word!</p>
+                <p>The target word is: ${userInfo.gameData[username].secretWord}.</p>
+                <p>You can start a NEW game! </p>
+                </div>`;
         }
-        return` <br/>`;
+        return`<p> </p>`;
     }
 
 };
