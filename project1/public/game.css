@@ -1,0 +1,147 @@
+*, *::before, *::after { 
+    box-sizing: border-box;
+}
+
+html, body { 
+    height: 100%;
+    margin: 0;
+    padding: 0 1rem;
+
+    font-family: sans-serif;
+
+    background-color: #FFE5E5;
+}
+
+header{
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    word-break: normal;
+}
+
+header h1{
+    text-align: center;
+    align-items: center;
+
+    margin: 0;
+
+    width: 100%;
+
+    color: black;
+
+    word-break: break-all;
+}
+
+.game-info{
+    padding: 0 1rem 0 1rem;
+}
+
+.game-instruction{
+    line-height: 1.5;
+}
+
+.words-field{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    word-break: normal;
+}
+
+.possible-field{
+    grid-column: span 3;
+}
+
+.guessed-field{
+    grid-column: span 2;
+}
+
+.possible-field, .guessed-field{
+    margin: 1rem;
+    padding: 1rem;
+
+    border-color: red;
+    border-style: dashed;
+    border-radius: 1rem;   
+}
+
+.word-info{
+    margin: 1rem;
+    padding: 1rem;
+    
+    text-align: center;
+
+    border-color: red;
+    border-style: dashed;
+    border-radius: 1rem;  
+}
+
+
+.game-form{
+    text-align: center;
+
+    padding: 1rem;
+    padding-bottom: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+    "input input button"
+    "error-message error-message error-message";
+}
+
+.word-text{
+    grid-area: input;
+
+    margin: 1rem;
+}
+
+.word-btn{
+    grid-area: button;
+
+    margin: auto;
+}
+
+.error-message{
+    grid-area: error-message;
+
+    color: red;
+    font-size: large;
+    font-weight: bold;
+
+    margin: 0;
+    padding-bottom: 0.5rem;
+}
+
+button{
+    border: none;
+    padding: 1rem;
+
+    background-color: #FFBFBF;
+    border-radius: 2rem;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+}
+
+
+.winning{
+    color: red;
+    font-size: large;
+    font-weight: bold;
+
+    margin: 0 0 1rem 0;
+    padding: 0 0 2rem 0;
+
+    text-align: center;
+}
+
+
+.winning-text{
+    line-height: 2;
+}
