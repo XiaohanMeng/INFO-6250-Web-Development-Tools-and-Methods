@@ -93,9 +93,29 @@ login(appEl);
 addWord(appEl)
 logout(appEl)
 
+
 fetchSession()
 .then(response => {
-    render(response.username, '', appEl);
+    if (!response.error && response.username) { // check if username exists
+        const { username } = response;
+        fetchWord(username)
+        .catch( err => {
+            console.warn("Error: ", err);
+            errorEl.innerHTML = `<p> ${errorMessage[`${err.error}`]}</p>`;
+            return;
+        } )
+        .then( response => {
+            
+            const { username, storedWord } = response;
+            state.username = username;
+            state.word = storedWord;
+            errorEl.innerHTML = response.error ? errorEl.innerHTML : '';
+            render(state.username, state.word, appEl);
+            return;
+        })
+    } 
+    // if username not exist, login page
+    render('', '', appEl);
 })
 .catch(err => {
     console.warn("Error: ", err);

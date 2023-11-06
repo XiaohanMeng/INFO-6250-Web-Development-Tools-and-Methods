@@ -335,7 +335,25 @@ login(appEl);
 addWord(appEl);
 logout(appEl);
 (0,_services__WEBPACK_IMPORTED_MODULE_2__.fetchSession)().then(function (response) {
-  (0,_render__WEBPACK_IMPORTED_MODULE_0__["default"])(response.username, '', appEl);
+  if (!response.error && response.username) {
+    // check if username exists
+    var username = response.username;
+    (0,_services__WEBPACK_IMPORTED_MODULE_2__.fetchWord)(username)["catch"](function (err) {
+      console.warn("Error: ", err);
+      errorEl.innerHTML = "<p> ".concat(_state__WEBPACK_IMPORTED_MODULE_1__.errorMessage["".concat(err.error)], "</p>");
+      return;
+    }).then(function (response) {
+      var username = response.username,
+        storedWord = response.storedWord;
+      _state__WEBPACK_IMPORTED_MODULE_1__["default"].username = username;
+      _state__WEBPACK_IMPORTED_MODULE_1__["default"].word = storedWord;
+      errorEl.innerHTML = response.error ? errorEl.innerHTML : '';
+      (0,_render__WEBPACK_IMPORTED_MODULE_0__["default"])(_state__WEBPACK_IMPORTED_MODULE_1__["default"].username, _state__WEBPACK_IMPORTED_MODULE_1__["default"].word, appEl);
+      return;
+    });
+  }
+  // if username not exist, login page
+  (0,_render__WEBPACK_IMPORTED_MODULE_0__["default"])('', '', appEl);
 })["catch"](function (err) {
   console.warn("Error: ", err);
   (0,_render__WEBPACK_IMPORTED_MODULE_0__["default"])('', '', appEl);
