@@ -175,11 +175,20 @@ function fetchSetWord(word) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   errorMessage: () => (/* binding */ errorMessage)
 /* harmony export */ });
 var state = {
   username: '',
   word: ''
+};
+var errorMessage = {
+  'auth-missing': "Session is invalid.",
+  'required-username': "Username invalid",
+  'auth-insufficient': "Dog is invalid.",
+  'required-word': "Word is required.",
+  'invalid-word': "Word is invalid.",
+  'network-error': "The connection is down."
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (state);
 
@@ -265,22 +274,21 @@ function login(appEl) {
         (0,_services__WEBPACK_IMPORTED_MODULE_2__.fetchWord)().then(function (response) {
           var username = response.username;
           var storedWord = response.storedWord;
-          // const {username, storedWord} = response;
           _state__WEBPACK_IMPORTED_MODULE_1__["default"].username = username;
           _state__WEBPACK_IMPORTED_MODULE_1__["default"].storedWord = storedWord;
           (0,_render__WEBPACK_IMPORTED_MODULE_0__["default"])(username, storedWord, appEl);
         })["catch"](function (err) {
           console.warn("Error: ", err);
+          errorEl.innerHTML = "<p> ".concat(_state__WEBPACK_IMPORTED_MODULE_1__.errorMessage["".concat(err.error)], "</p>");
           return;
         });
       })["catch"](function (err) {
         console.warn("Error: ", err);
         if (err.error === 'auth-insufficient') {
-          errorEl.innerHTML = "<p> Dog is invalid.</p>";
+          errorEl.innerHTML = "<p> ".concat(_state__WEBPACK_IMPORTED_MODULE_1__.errorMessage["".concat(err.error)], "</p>");
         } else if (err.error === 'required-username') {
-          errorEl.innerHTML = "<p> Username invalid.</p>";
+          errorEl.innerHTML = "<p> ".concat(_state__WEBPACK_IMPORTED_MODULE_1__.errorMessage["".concat(err.error)], "</p>");
         }
-        console.warn("Error: ", err);
         return;
       });
       return;
@@ -300,6 +308,9 @@ function addWord(appEl) {
         (0,_render__WEBPACK_IMPORTED_MODULE_0__["default"])(username, storedWord, appEl);
       })["catch"](function (err) {
         console.warn("Error: ", err);
+        errorEl.innerHTML = "<p> ".concat(_state__WEBPACK_IMPORTED_MODULE_1__.errorMessage["".concat(err.error)], "</p>");
+
+        // console.log(err.error);
         return;
       });
       return;
@@ -314,6 +325,7 @@ function logout(appEl) {
         return;
       })["catch"](function (err) {
         console.warn("Error: ", err);
+        errorEl.innerHTML = "<p> ".concat(_state__WEBPACK_IMPORTED_MODULE_1__.errorMessage["".concat(err.error)], "</p>");
         return;
       });
     }

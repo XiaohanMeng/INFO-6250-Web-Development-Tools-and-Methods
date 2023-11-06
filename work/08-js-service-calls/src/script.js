@@ -1,5 +1,5 @@
 import render from './render';
-import state from './state';
+import state, {errorMessage} from './state';
 import { fetchLogin, fetchLogout, fetchSession, fetchSetWord, fetchWord } from './services';
 
 const appEl = document.querySelector("#app");
@@ -17,25 +17,25 @@ function login(appEl){
                 .then(response => {
                     const username = response.username;
                     const storedWord = response.storedWord;
-                    // const {username, storedWord} = response;
                     state.username = username;
                     state.storedWord = storedWord;
                     render(username, storedWord, appEl);
                 })
                 .catch(err => {
                     console.warn("Error: ", err);
+                    errorEl.innerHTML = `<p> ${errorMessage[`${err.error}`]}</p>`;
+
                     return;
                 });
             })
             .catch(err => {
                 console.warn("Error: ", err);
                 if(err.error === 'auth-insufficient'){
-                    errorEl.innerHTML = `<p> Dog is invalid.</p>`;
+                    errorEl.innerHTML = `<p> ${errorMessage[`${err.error}`]}</p>`;
                 }
                 else if(err.error === 'required-username'){
-                    errorEl.innerHTML = `<p> Username invalid.</p>`;
+                    errorEl.innerHTML = `<p> ${errorMessage[`${err.error}`]}</p>`;
                 }
-                console.warn("Error: ", err);
                 return;
                 
             })
@@ -60,6 +60,9 @@ function addWord(appEl){
             })
             .catch(err => {
                 console.warn("Error: ", err);
+                errorEl.innerHTML = `<p> ${errorMessage[`${err.error}`]}</p>`;
+
+                // console.log(err.error);
                 return;
             })
             return;
@@ -78,6 +81,7 @@ function logout(appEl){
             })
             .catch( err =>{
                 console.warn("Error: ", err);
+                errorEl.innerHTML = `<p> ${errorMessage[`${err.error}`]}</p>`;
                 return;
             })
         }
@@ -96,5 +100,6 @@ fetchSession()
 .catch(err => {
     console.warn("Error: ", err);
     render('','',appEl);
+
     return;
 })
