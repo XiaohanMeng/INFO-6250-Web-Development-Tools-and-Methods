@@ -34,5 +34,65 @@ export function fetchLogin(username) {
   });
 }
 
+export function fetchSession(){
+  return fetch('/api/session/' ,{
+    method: 'GET',
+  })
+  .catch( err => Promise.reject({ error: 'network-error' }) )
+  .then( response => {
+    if(!response.ok) { 
+      return response.json().then( err => Promise.reject(err) );
+    }
+    return response.json(); 
+  });
+}
+
+export function fetchLogout(){
+  return fetch('/api/session/',{
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json',
+    }
+  })
+  .catch( err => Promise.reject({ error: 'network-error' }) )
+  .then( response => {
+    if(!response.ok) { 
+      return response.json().then( err => Promise.reject(err) );
+    }
+    return response.json(); 
+  });
+}
+
+export function fetchWord(){
+  return fetch('/api/word/',{
+    method: 'GET',
+  })
+  .catch( err => Promise.reject({ error: 'network-error' }) )
+  .then( response => {
+    if(!response.ok) { 
+      return response.json().then( err => Promise.reject(err) );
+    }
+    return response.json(); 
+  });
+}
+
+export function fetchSetWord(word){
+  return fetch('/api/word/',{
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify( { word } ),
+  })
+  .catch( err => Promise.reject({ error: 'network-error' }) )
+  .then( response => {
+    if(!response.ok) { 
+      return response.json().then( err => Promise.reject(err) );
+    }
+    return response.json(); 
+  });
+}
+
+
 
 
