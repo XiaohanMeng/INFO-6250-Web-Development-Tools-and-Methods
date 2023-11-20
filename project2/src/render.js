@@ -30,7 +30,6 @@ function generateLoginHtml(state) {
         return "";
     }
 
-
     return `<div class="login">
 
         <h1>Login</h1>
@@ -77,16 +76,16 @@ function generateUsersHtml(state) {
             <p>Loading Users...</p>
         </div>`;
     }
-
+    
     return `
         <h2>Logged In Users</h2>
         <ul class="user-list"> ` + 
-            Object.entries(state.users).map((user) => {
-                if (user[1]) { // if true: logged in user
+            Object.values(state.users).map((user) => {
+                if (user) { // if true: logged in user
                     return `
                         <li>
                             <div class="user">
-                                <span class="username">${user[0]}</span>
+                                <span class="username">${user}</span>
                             </div>
                         </li>
                     `;

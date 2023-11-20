@@ -180,10 +180,10 @@ function generateUsersHtml(state) {
   if (state.isUserPending) {
     return "<div class=\"waiting\">\n            <p>Loading Users...</p>\n        </div>";
   }
-  return "\n        <h2>Logged In Users</h2>\n        <ul class=\"user-list\"> " + Object.entries(state.users).map(function (user) {
-    if (user[1]) {
+  return "\n        <h2>Logged In Users</h2>\n        <ul class=\"user-list\"> " + Object.values(state.users).map(function (user) {
+    if (user) {
       // if true: logged in user
-      return "\n                        <li>\n                            <div class=\"user\">\n                                <span class=\"username\">".concat(user[0], "</span>\n                            </div>\n                        </li>\n                    ");
+      return "\n                        <li>\n                            <div class=\"user\">\n                                <span class=\"username\">".concat(user, "</span>\n                            </div>\n                        </li>\n                    ");
     }
     return '';
   }).join('') + "</ul>";

@@ -45,10 +45,9 @@ app.post('/api/v1/session', (req, res) =>{
 	}
 
 	const sid = sessions.setSession(username);
-	users.addUser(username);
 	res.cookie('sid', sid);
 
-    res.json(users.getUsers()); // return user list
+    res.json(sessions.getOnlineUsers());
 
 });
 
@@ -64,7 +63,6 @@ app.delete('/api/v1/session', (req, res) => {
 
     if(username){
         sessions.deleteSession(sid);
-        users.deleteUser(username);
     }
 
     res.json({username});
@@ -81,7 +79,8 @@ app.get('/api/v1/users', (req, res) => {
         return;
     }
 
-    res.json(users.getUsers());
+
+    res.json(sessions.getOnlineUsers());
     
 });
 
