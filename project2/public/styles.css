@@ -1,0 +1,168 @@
+*, *::before, *::after { 
+    box-sizing: border-box;
+}
+
+html, body { 
+    height: 100%;
+    margin: 0;
+    padding: 1rem;
+
+    font-family: sans-serif;
+
+    background-color: #FFE5E5;
+
+    word-break: break-word;
+
+}
+
+.error {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+    z-index: 1;
+
+    background-color: #ffcccc; 
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+
+}
+
+.error-message {
+    color: #ff0000; 
+}
+
+h1{
+    text-align: center;
+    align-items: center;
+
+    padding: 1rem;
+    padding-top: 2rem;
+
+    width: 100%;
+
+    color: black;
+}
+
+button{
+    border: none;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    margin: 1rem;
+
+    background-color: #FFBFBF;
+    border-radius: 2rem;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+}
+
+
+/************ Login Page ************/
+
+.login{
+    text-align: center;
+
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.login-text {
+    width: 20rem;
+}
+
+
+/************ Chat Page ************/
+.chat {
+    margin: 2rem auto; 
+    padding: 0 1rem 0 1rem;
+}
+
+.menu{
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu span{
+    align-self: center;
+    padding: 1rem;
+}
+
+.chat-content{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem; 
+}
+
+.chat-users{
+    background-color: #f0f0f0; 
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+h2{
+    text-align: center;
+}
+
+.chat-messages{
+    border-radius: 1rem;
+    border-color: red;
+    border-style: dashed;
+}
+
+.message-list {
+    list-style-type: none;
+    padding: 1rem;
+   
+}
+
+.user-message{
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #fff;
+
+    padding: 0.5rem;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.waiting {
+    text-align: center;
+    padding: 1rem;
+}
+
+.chat-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.message-text {
+    margin: 1rem;
+
+    margin-bottom: 1rem;
+    width: 70%;
+
+    align-items: center;
+}
+  
+.chat-users, .chat-messages {
+    margin-bottom: 2rem;
+}
