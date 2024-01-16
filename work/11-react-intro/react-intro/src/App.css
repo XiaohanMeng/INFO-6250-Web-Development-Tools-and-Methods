@@ -1,0 +1,92 @@
+body, html, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: #FFE5E5;
+}
+
+.app{
+    padding: 1rem;
+
+}
+
+h1, h2{
+    text-align: center;
+    align-items: center;
+
+    margin: 0;
+
+    width: 100%;
+
+    color: black;
+}
+
+.login-page, .game-page{
+    padding: 1rem;
+}
+
+label{
+    padding: 1rem;
+}
+
+span, p{
+    padding: 0.5rem;
+    color:black;
+}
+
+input {
+    background-color: white;
+    color: black;
+}
+
+.login-form{
+    text-align: center;
+
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.login-text, .login-btn{
+    margin: auto;
+
+    margin-bottom: 1rem;
+    width: 10rem;
+}
+
+.error-message{
+    color: red;
+
+    border: dashed;
+    border-radius: 1rem;
+
+    text-align: center;
+}
+
+
+.result-message{
+    color: red;
+
+    text-align: center;
+}
+
+
+
+button{
+    border: none;
+    padding: 1rem;
+
+    background-color: #FFBFBF;
+    border-radius: 2rem;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    margin:1rem;
+}
